@@ -16,6 +16,3 @@ This will run RStudio Server which must be mounted with dependencies into the co
 %runscript
   export PATH="$USER_PATH"
   exec rserver "${@}"
-
-%post
-  yum install -y which
