@@ -6,15 +6,16 @@ setup_env () {
 
   # The rserver container module should set these environment variables:
 
-  #   SINGULARITY_BINDPATH="/usr/local,/etc/profile.d/lmod.sh,/usr/share/lmod,/opt/intel,/opt/mvapich2,/usr/lib64"
+  #   SINGULARITY_BINDPATH="/etc,/media,/mnt,/opt,/srv,/usr,/var"
   #   RSTUDIO_SERVER_IMAGE="/usr/local/project/ondemand/singularity/rstudio/rstudio_launcher_centos7.simg"
-  #   PATH="$PATH:/path/to/R:/path/to/rstudio/rserver"
  
   # SINGULARITY_BINDPATH is being used to bind all RStudio's requirements from
   # the host into the guest, and so those values may vary between sites.
 
+  export SINGULARITY_BINDPATH="/etc,/media,/mnt,/opt,/srv,/usr,/var,/apps"
+  export RSTUDIO_SERVER_IMAGE="/apps/project/singularity/rstudio/rstudio_launcher_centos7.simg"
   module use /usr/local/share/lmodfiles/project/ondemand
-  module load <%= context.version %> rstudio_container/2019Feb
+  module load <%= context.version %> # rstudio_container/2019Feb
 }
 setup_env
 

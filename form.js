@@ -13,33 +13,33 @@ function fix_num_cores() {
   }
   
   if(node_type === 'hugemem') {
-    set_ppn_owens_hugemem(num_cores_input);
+    set_ppn_pitzer_hugemem(num_cores_input);
   } else {
-    set_ppn_owens_regular(num_cores_input);
+    set_ppn_pitzer_regular(num_cores_input);
   }
 }
 
 /**
- * Sets the PPN limits available for Owens hugemem nodes.
+ * Sets the PPN limits available for Pitzer hugemem nodes.
  * 
  * hugemem reservations are always assigned the full node
  *
  * @param      {element}  num_cores_input  The input for num_cores
  */
-function set_ppn_owens_hugemem(num_cores_input) {
-  const NUM_CORES = 48;
+function set_ppn_pitzer_hugemem(num_cores_input) {
+  const NUM_CORES = 80;
   num_cores_input.attr('max', NUM_CORES);
   num_cores_input.attr('min', NUM_CORES);
   num_cores_input.val(NUM_CORES);
 }
 
 /**
- * Sets the PPN limits available for non hugemem Owens nodes.
+ * Sets the PPN limits available for non hugemem Pitzer nodes.
  *
  * @param      {element}  num_cores_input  The input for num_cores
  */
-function set_ppn_owens_regular(num_cores_input) {
-  const NUM_CORES = 28;
+function set_ppn_pitzer_regular(num_cores_input) {
+  const NUM_CORES = 40;
   num_cores_input.attr('max', NUM_CORES);
   num_cores_input.attr('min', 0);
   num_cores_input.val(Math.min(NUM_CORES, num_cores_input.val()));

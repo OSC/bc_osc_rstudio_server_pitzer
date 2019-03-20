@@ -1,5 +1,5 @@
 ---
-cluster: "owens"
+cluster: "pitzer"
 form:
   - version
   - bc_account
@@ -13,10 +13,10 @@ attributes:
     label: "Number of cores"
     value: 1
     help: |
-      Number of cores on node type (4 GB per core unless requesting whole
+      Number of cores on node type (4.8 GB per core unless requesting whole
       node). Leave blank if requesting full node.
     min: 0
-    max: 28
+    max: 40
     step: 1
     id: 'num_cores'
   bc_account:
@@ -26,14 +26,14 @@ attributes:
     widget: select
     label: "Node type"
     help: |
-      - **any** - (*1-28 cores*) Use any available Owens node. This reduces the
+      - **any** - (*1-40 cores*) Use any available Pitzer node. This reduces the
         wait time as there are no node requirements.
-      - **hugemem** - (*48 cores*) Use an Owens node that has 1.5TB of
-        available RAM as well as 48 cores. There are 16 of these nodes on
-        Owens. Requesting hugemem nodes allocates entire nodes.
-      - **debug** - (*1-28 cores*) For short sessions (= 1 hour) the debug
+      - **hugemem** - (*80 cores*) Use an Pitzer node that has 3TB of
+        available RAM as well as 40 cores. There are 4 of these nodes on
+        Pitzer. Requesting hugemem nodes allocates entire nodes.
+      - **debug** - (*1-40 cores*) For short sessions (= 1 hour) the debug
         queue will have the shortest wait time. This is only accessible during
-        8AM - 6PM, Monday - Friday. There are 6 of these nodes on Owens.
+        8AM - 6PM, Monday - Friday. There are 6 of these nodes on Pitzer.
     options:
       - [ "any",     "any"     ]
       - [ "hugemem", "hugemem" ]
@@ -43,6 +43,5 @@ attributes:
     label: "R version"
     help: "This defines the version of R you want to load."
     options:
-      - [ "3.5.0", "intel/16.0.3 R/3.5.0 rstudio/1.1.380_server"]
-      - [ "3.4.2", "intel/16.0.3 R/3.4.2 rstudio/1.1.380_server"]
-      - [ "3.3.2", "intel/16.0.3 R/3.3.2 rstudio/1.0.136_server"]
+      - [ "3.5.2", "intel/18.0.4 R/3.5.2 rstudio/1.1.456"]
+      - [ "3.5.1", "intel/18.0.4 R/3.5.1 rstudio/1.1.456"]
