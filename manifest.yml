@@ -1,5 +1,5 @@
 ---
-name: RStudio Server on Pitzer
+name: RStudio Server (Pitzer)
 category: Interactive Apps
 subcategory: Servers
 role: batch_connect

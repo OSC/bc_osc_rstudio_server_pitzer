@@ -17,3 +17,9 @@ script:
   native:
     resources:
       nodes: "1<%= props %>"
+    <%-
+      # Failing to request memory causes submission to fail on Pitzer
+      if node_type == 'hugemem'
+    -%>
+      mem: 3000GB
+    <%- end -%>
