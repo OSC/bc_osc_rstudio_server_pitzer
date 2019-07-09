@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 0.0.2 - 2019-09-07
+### Added
+- Added xalt
+
 ## 0.0.1 - 2019-21-03
 ### Added
 - Initial release!
