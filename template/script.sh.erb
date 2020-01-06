@@ -65,7 +65,7 @@ echo "Starting up rserver..."
 # singularity.conf which would otherwise conflict in /etc
 # using --contain requires us to bind mount in addition directories including
 # /dev and /proc
-SINGULARITYENV_LD_LIBRARY_PATH="$LD_LIBRARY_PATH" singularity run --contain -B "$TMPDIR:/tmp" /users/PZS0002/mrodgers/images/rstudio_debug_launcher.sif \
+SINGULARITYENV_LD_LIBRARY_PATH="$LD_LIBRARY_PATH" singularity run --contain -B "$TMPDIR:/tmp" "$RSTUDIO_SERVER_IMAGE" \
  --www-port "${port}" \
  --auth-none 0 \
  --auth-pam-helper-path "${RSTUDIO_AUTH}" \

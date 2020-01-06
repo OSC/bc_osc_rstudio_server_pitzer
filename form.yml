@@ -43,6 +43,6 @@ attributes:
     label: "R version"
     help: "This defines the version of R you want to load."
     options:
-      - [ "3.6.0", "gnu/7.3.0 R/3.6.0 rstudio/1.2.1335"  ]
+      - [ "3.6.0", "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.2.1335"  ]
       - [ "3.5.2", "intel/18.0.4 R/3.5.2 rstudio/1.1.456"]
       - [ "3.5.1", "intel/18.0.4 R/3.5.1 rstudio/1.1.456"]
