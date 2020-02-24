@@ -14,6 +14,7 @@ setup_env () {
 
   module use /apps/lmodfiles/project/ondemand
   module load xalt/latest <%= context.version %> rstudio_container
+  module load <%= context.additional_modules %>
 }
 setup_env
 
