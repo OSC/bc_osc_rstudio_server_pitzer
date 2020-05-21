@@ -3,6 +3,8 @@
   props = case node_type
           when "hugemem"
             ":ppn=80"
+          when "gpu"
+            ":ppn=#{ppn}:gpus=1"
           else
             ":ppn=#{ppn}"
           end

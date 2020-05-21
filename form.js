@@ -54,8 +54,38 @@ function set_node_type_change_handler() {
   node_type_input.change(node_type_input, fix_num_cores);
 }
 
+/**
+ * Add a change listener to the version select
+ */
+function set_version_change_hander() {
+  let version_select = $("#batch_connect_session_context_version");
+  version_select.change(function(event){
+    toggle_gpu_nodes(event);
+  });
+}
+
+/**
+ * Given a change event from choosing a different version of R, toggle
+ * the ability to choose GPUs depending on the version.
+ *
+ * @param  {Object} event The change event
+ */
+function toggle_gpu_nodes(event){
+  const show = /3\.6\.3/.test(event.target.value); // test seems more readable than = !! match
+  const gpu = $("#batch_connect_session_context_node_type option[value='gpu']");
+
+  if(show) {
+    gpu.show();
+  } else {
+    gpu.hide();
+    gpu.prop('selected', false);
+  }
+}
+
+
 $(document).ready(function() {
   // Set the max value to be what was set in the last session
   fix_num_cores();
   set_node_type_change_handler();
+  set_version_change_hander();
 });

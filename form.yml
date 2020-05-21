@@ -34,15 +34,21 @@ attributes:
       - **debug** - (*1-40 cores*) For short sessions (= 1 hour) the debug
         queue will have the shortest wait time. This is only accessible during
         8AM - 6PM, Monday - Friday. There are 6 of these nodes on Pitzer.
+      - **gpu** - (*1-40 cores*) This node includes two [NVIDIA Tesla V100 GPUs]
+        and loads the [CUDA] 10.1.168 module. This node has 384GB of memory.
+        There are currently only 32 of these nodes on Pitzer and it's only
+        available for R version 3.6.3.
     options:
       - [ "any",     "any"     ]
       - [ "hugemem", "hugemem" ]
       - [ "debug",   "debug"   ]
+      - [ "gpu",     "gpu"     ]
   version:
     widget: select
     label: "R version"
     help: "This defines the version of R you want to load."
     options:
+      - [ "3.6.3", "app_rstudio_server/3.6.3" ]
       - [ "3.6.0", "gnu/7.3.0 mkl/2018.0.3 R/3.6.0 rstudio/1.2.1335"  ]
       - [ "3.5.2", "intel/18.0.4 R/3.5.2 rstudio/1.1.456"]
       - [ "3.5.1", "intel/18.0.4 R/3.5.1 rstudio/1.1.456"]

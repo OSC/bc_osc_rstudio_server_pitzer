@@ -12,8 +12,8 @@ setup_env () {
   # SINGULARITY_BINDPATH is being used to bind all RStudio's requirements from
   # the host into the guest, and so those values may vary between sites.
 
-  module use /apps/lmodfiles/project/ondemand
-  module load xalt/latest <%= context.version %> rstudio_container
+  module load ondemand
+  module load xalt/latest <%= context.version %> rstudio_launcher/centos7
 }
 setup_env
 
@@ -36,7 +36,9 @@ sed 's/^ \{2\}//' > "${RSESSION_WRAPPER_FILE}" << EOL
 
   exec &>>"\${RSESSION_LOG_FILE}"
 
-  source <%= session.staged_root.join('.env') %>
+  # rsession.sh doesn't share the same env as the outside script, so these
+  # need to be set explicitly
+  export R_LIBS_SITE="${R_LIBS_SITE}"
 
   # Launch the original command
   echo "Launching rsession..."
@@ -56,10 +58,6 @@ hostname
 set -x
 # Launch the RStudio Server
 echo "Starting up rserver..."
-
-# Dump environment without functions for use in rsession.sh, filtering readonly variables
-# This is a fix for Singularity not forwarding all required environment variables including LD_LIBRARY_PATH
-(set -o posix; set) | grep -vP '^(BASHOPTS|BASH_VERSINFO|EUID|PPID|SHELLOPTS|UID)' > "<%= session.staged_root.join('.env') %>"
 
 # --contain is used to override the bindpaths specified in OSC's
 # singularity.conf which would otherwise conflict in /etc
