@@ -5,6 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.4.0] - 2020-08-28
+### Changed
+- This app now raises an exception when trying to submit with the addition of
+  [#6](https://github.com/OSC/bc_osc_rstudio_server_pitzer/pull/6). This is because
+  we now have functionality to submit to multiple clusters and 
+  [the generic application](https://github.com/OSC/bc_osc_rstudio_server) now submits
+  to pitzer.
+
+
 ## [0.3.0] - 2020-07-31
 ### Added
 - Added R module 4.0.2
@@ -51,7 +60,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial release!
 
-[Unreleased]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.1.5...v0.2.0
 [0.1.5]: https://github.com/OSC/bc_osc_rstudio_server/compare/v0.1.4...v0.1.5
