@@ -29,8 +29,8 @@ attributes:
       - **any** - (*1-40 cores*) Use any available Pitzer node. This reduces the
         wait time as there are no node requirements.
       - **hugemem** - (*80 cores*) Use an Pitzer node that has 3TB of
-        available RAM as well as 40 cores. There are 4 of these nodes on
-        Pitzer. Requesting hugemem nodes allocates entire nodes.
+        available RAM as well as 80 cores. There are 4 of these nodes on
+        Pitzer.
       - **debug** - (*1-40 cores*) For short sessions (= 1 hour) the debug
         queue will have the shortest wait time. This is only accessible during
         8AM - 6PM, Monday - Friday. There are 6 of these nodes on Pitzer.
